@@ -1,0 +1,29 @@
+version: 2.1
+
+executors:
+  python-executor:
+    docker:
+      - image: circleci/python:3.8
+
+jobs:
+  test:
+    executor: python-executor
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            python -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+      - run:
+          name: Run tests
+          command: |
+            . venv/bin/activate
+            python -m unittest discover
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
