@@ -1,9 +1,6 @@
-
-### 3. `test_main.py`
-This file tests the sentiment analysis function using various text inputs.
-
-```python
 # test_main.py
+# This file tests the sentiment analysis function using various text inputs.
+
 import unittest
 from main import analyze_sentiment
 
